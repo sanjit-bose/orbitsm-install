@@ -2,13 +2,22 @@
     "version":  "1.0.6",
     "channel":  "stable",
     "released_at":  "2026-06-28",
-    "minimum_supported_version":  "1.0.5",
-    "images":  {
-                   "backend":  "bosesanjit/orbitsm-backend:1.0.6",
-                   "frontend":  "bosesanjit/orbitsm-frontend:1.0.6",
-                   "database":  "postgres:15",
-                   "reverse_proxy":  "nginx:1.27-alpine"
-               },
+    "minimumVersion":  "1.0.5",
+    "backupRequired":  true,
+    "components":  {
+                       "backend":  {
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.6"
+                                   },
+                       "frontend":  {
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.6"
+                                    },
+                       "db":  {
+                                  "image":  "postgres:15"
+                              },
+                       "nginx":  {
+                                     "image":  "nginx:1.27-alpine"
+                                 }
+                   },
     "rollback":  {
                      "backend":  "bosesanjit/orbitsm-backend:1.0.5",
                      "frontend":  "bosesanjit/orbitsm-frontend:1.0.5"
