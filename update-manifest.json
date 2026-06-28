@@ -1,0 +1,29 @@
+﻿{
+  "version": "1.0.5",
+  "channel": "stable",
+  "released_at": "2026-06-28",
+  "minimum_supported_version": "1.0.4",
+  "images": {
+    "backend": "bosesanjit/orbitsm-backend:1.0.5",
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.5",
+    "database": "postgres:15",
+    "reverse_proxy": "nginx:1.27-alpine"
+  },
+  "rollback": {
+    "backend": "bosesanjit/orbitsm-backend:1.0.4",
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.4"
+  },
+  "tags": {
+    "stable": "1.0.5",
+    "latest": "1.0.5",
+    "rollback": "1.0.4"
+  },
+  "notes": [
+    "Adds Docker Hub public registry option in Update Center.",
+    "Adds Microsoft 365 SMTP, Gmail/Workspace SMTP, Company mail relay, and IIS SMTP relay presets.",
+    "Keeps previous version 1.0.4 available as rollback target."
+  ],
+  "update_type": "patch",
+  "requires_database_migration": false,
+  "health_check_url": "/health"
+}
