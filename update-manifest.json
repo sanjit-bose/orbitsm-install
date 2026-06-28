@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.7",
+    "version":  "1.0.8",
     "channel":  "stable",
     "released_at":  "2026-06-28",
-    "minimumVersion":  "1.0.6",
+    "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.7"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.8"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.7"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.8"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,18 +19,18 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.6",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.6"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.7",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.7"
                  },
     "tags":  {
-                 "stable":  "1.0.7",
-                 "latest":  "1.0.7",
-                 "rollback":  "1.0.6"
+                 "stable":  "1.0.8",
+                 "latest":  "1.0.8",
+                 "rollback":  "1.0.7"
              },
     "notes":  [
-                  "Uses jsDelivr manifest URL to avoid GitHub raw branch cache delays.",
-                  "Shows friendly manifest download/JSON validation errors instead of API 500.",
-                  "Keeps previous version 1.0.6 available as rollback target."
+                  "Adds Update now button in Update Center.",
+                  "Adds quick maintenance presets for +15 minutes and +1 hour.",
+                  "Clarifies local time handling and AM/PM picker behavior."
               ],
     "update_type":  "patch",
     "requires_database_migration":  false,

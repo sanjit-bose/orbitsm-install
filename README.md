@@ -5,8 +5,8 @@ This repository hosts the public OrbitSM update manifest used by the OrbitSM Upd
 Manifest URL:
 
 ```text
-https://cdn.jsdelivr.net/gh/sanjit-bose/orbitsm-install@main/update-manifest.json
+https://raw.githubusercontent.com/sanjit-bose/orbitsm-install/4998396/update-manifest.json
 ```
 
-Current stable version: `1.0.7`
-Rollback version: `1.0.6`
+Current stable version: `1.0.8`
+Rollback version: `1.0.7`
