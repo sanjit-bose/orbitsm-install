@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.6",
+    "version":  "1.0.7",
     "channel":  "stable",
     "released_at":  "2026-06-28",
-    "minimumVersion":  "1.0.5",
+    "minimumVersion":  "1.0.6",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.6"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.7"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.6"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.7"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,18 +19,18 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.5",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.5"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.6",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.6"
                  },
     "tags":  {
-                 "stable":  "1.0.6",
-                 "latest":  "1.0.6",
-                 "rollback":  "1.0.5"
+                 "stable":  "1.0.7",
+                 "latest":  "1.0.7",
+                 "rollback":  "1.0.6"
              },
     "notes":  [
-                  "Corrects Update Center manifest URL to sanjit-bose/orbitsm-install.",
-                  "Keeps Docker Hub public registry option and public no-login update-agent flow.",
-                  "Keeps previous version 1.0.5 available as rollback target."
+                  "Uses jsDelivr manifest URL to avoid GitHub raw branch cache delays.",
+                  "Shows friendly manifest download/JSON validation errors instead of API 500.",
+                  "Keeps previous version 1.0.6 available as rollback target."
               ],
     "update_type":  "patch",
     "requires_database_migration":  false,
