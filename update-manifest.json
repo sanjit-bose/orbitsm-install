@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.12",
+    "version":  "1.0.13",
     "channel":  "stable",
     "released_at":  "2026-06-29",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.12"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.13"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.12"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.13"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -23,8 +23,8 @@
                      "frontend":  "bosesanjit/orbitsm-frontend:1.0.11"
                  },
     "tags":  {
-                 "stable":  "1.0.12",
-                 "latest":  "1.0.12",
+                 "stable":  "1.0.13",
+                 "latest":  "1.0.13",
                  "rollback":  "1.0.11"
              },
     "notes":  [
@@ -39,6 +39,7 @@
                   "Adds startup schema locking to prevent fresh-database table creation races with multiple backend workers.",
                   "Update Now now refreshes the manifest and queues immediate execution; repaired Windows agent scripts poll every 1 minute."
                   ,
+                  "Fixes the 1.0.12 backend startup failure caused by Python 3.11 f-string parsing in notification logging.",
                   "Adds Assigned to autocomplete on new incident creation.",
                   "Automatically fills incident creator from the logged-in account email.",
                   "Adds autocomplete-assisted selection for approvers, collaborators, and watchers.",
