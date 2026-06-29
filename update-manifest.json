@@ -49,7 +49,12 @@
                   "Persists uploaded attachments in a Docker volume so files survive image updates and container recreation.",
                   "Adds attachment upload and delete audit entries plus work-item notification triggers.",
                   "Displays login retry count and locks accounts for 20 minutes after 5 failed attempts.",
-                  "Extends password reset link validity from 1 hour to 24 hours."
+                  "Extends password reset link validity from 1 hour to 24 hours.",
+                  "Confirms pre-update PostgreSQL backup is required by default before patch installation.",
+                  "Preserves database volumes during update and rollback; rollback changes application images only unless an explicit database restore is requested.",
+                  "Adds owning project assignment and reassignment for Problems and Changes.",
+                  "Records Problem and Change project transfers in read-only audit history, including old project code and new project code.",
+                  "Problem and Change project filtering now includes directly assigned owning projects as well as linked incident/problem relationships."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
