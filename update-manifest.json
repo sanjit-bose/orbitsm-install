@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.10",
+    "version":  "1.0.11",
     "channel":  "stable",
     "released_at":  "2026-06-28",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.10"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.11"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.10"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.11"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,22 +19,23 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.9",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.9"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.10",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.10"
                  },
     "tags":  {
-                 "stable":  "1.0.10",
-                 "latest":  "1.0.10",
-                 "rollback":  "1.0.9"
+                 "stable":  "1.0.11",
+                 "latest":  "1.0.11",
+                 "rollback":  "1.0.10"
              },
     "notes":  [
-                  "Adds Update now button in Update Center.",
-                  "Adds quick maintenance presets for +15 minutes and +1 hour.",
-                  "Clarifies local time handling and AM/PM picker behavior.",
-                  "Adds manifest cache-busting and friendlier manifest error messages.",
-                  "Corrects Manual Check status so matching current and available versions show as up to date."
+                  "Adds assignee autocomplete with name and email matching from login users and project team members.",
+                  "Sends and logs notification attempts when incidents and tasks are assigned, updated, or commented.",
+                  "Adds full task detail pages with comments, updates, and read-only audit history.",
+                  "Adds incident comments and read-only audit history to incident detail pages.",
+                  "Adds NEED_MORE_INFO incident status: SLA pauses and the incident automatically reassigns to the submitter.",
+                  "Adds startup schema locking to prevent fresh-database table creation races with multiple backend workers."
               ],
     "update_type":  "patch",
-    "requires_database_migration":  false,
+    "requires_database_migration":  true,
     "health_check_url":  "/health"
 }
