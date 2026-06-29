@@ -33,7 +33,8 @@
                   "Adds full task detail pages with comments, updates, and read-only audit history.",
                   "Adds incident comments and read-only audit history to incident detail pages.",
                   "Adds NEED_MORE_INFO incident status: SLA pauses and the incident automatically reassigns to the submitter.",
-                  "Adds startup schema locking to prevent fresh-database table creation races with multiple backend workers."
+                  "Adds startup schema locking to prevent fresh-database table creation races with multiple backend workers.",
+                  "Update Now now refreshes the manifest and queues immediate execution; repaired Windows agent scripts poll every 1 minute."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
