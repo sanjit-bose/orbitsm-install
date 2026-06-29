@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.11",
+    "version":  "1.0.12",
     "channel":  "stable",
     "released_at":  "2026-06-29",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.11"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.12"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.11"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.12"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,13 +19,13 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.10",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.10"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.11",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.11"
                  },
     "tags":  {
-                 "stable":  "1.0.11",
-                 "latest":  "1.0.11",
-                 "rollback":  "1.0.10"
+                 "stable":  "1.0.12",
+                 "latest":  "1.0.12",
+                 "rollback":  "1.0.11"
              },
     "notes":  [
                   "Adds assignee autocomplete with name and email matching from login users and project team members.",
@@ -38,6 +38,11 @@
                   "Sends work-item notification attempts to valid email recipients listed as approver, collaborators, or watchers.",
                   "Adds startup schema locking to prevent fresh-database table creation races with multiple backend workers.",
                   "Update Now now refreshes the manifest and queues immediate execution; repaired Windows agent scripts poll every 1 minute."
+                  ,
+                  "Adds Assigned to autocomplete on new incident creation.",
+                  "Automatically fills incident creator from the logged-in account email.",
+                  "Adds autocomplete-assisted selection for approvers, collaborators, and watchers.",
+                  "Expands work-item notification routing so submitters/requesters, assignees, owners, approvers, collaborators, watchers, and resolved managers receive email updates when their names or emails are connected to incidents, tasks, service requests, problems, or changes."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
