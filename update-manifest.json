@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.13",
+    "version":  "1.0.14",
     "channel":  "stable",
     "released_at":  "2026-06-29",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.13"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.14"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.13"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.14"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,13 +19,13 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.11",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.11"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.13",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.13"
                  },
     "tags":  {
-                 "stable":  "1.0.13",
-                 "latest":  "1.0.13",
-                 "rollback":  "1.0.11"
+                 "stable":  "1.0.14",
+                 "latest":  "1.0.14",
+                 "rollback":  "1.0.13"
              },
     "notes":  [
                   "Adds assignee autocomplete with name and email matching from login users and project team members.",
@@ -44,6 +44,12 @@
                   "Automatically fills incident creator from the logged-in account email.",
                   "Adds autocomplete-assisted selection for approvers, collaborators, and watchers.",
                   "Expands work-item notification routing so submitters/requesters, assignees, owners, approvers, collaborators, watchers, and resolved managers receive email updates when their names or emails are connected to incidents, tasks, service requests, problems, or changes."
+                  ,
+                  "Adds multiple attachments across incidents, tasks, problems, and changes with a maximum of 5 attachments per record and 5 MB per file.",
+                  "Persists uploaded attachments in a Docker volume so files survive image updates and container recreation.",
+                  "Adds attachment upload and delete audit entries plus work-item notification triggers.",
+                  "Displays login retry count and locks accounts for 20 minutes after 5 failed attempts.",
+                  "Extends password reset link validity from 1 hour to 24 hours."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
