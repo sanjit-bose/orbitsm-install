@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.16",
+    "version":  "1.0.17",
     "channel":  "stable",
     "released_at":  "2026-06-30",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.16"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.17"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.16"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.17"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,15 +19,19 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.15",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.15"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.16",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.16"
                  },
     "tags":  {
-                 "stable":  "1.0.16",
-                 "latest":  "1.0.16",
-                 "rollback":  "1.0.15"
+                 "stable":  "1.0.17",
+                 "latest":  "1.0.17",
+                 "rollback":  "1.0.16"
              },
     "notes":  [
+                  "Redesigns the Update Center layout to use wide screens better and improve readability.",
+                  "Displays dates and times as separate local date, local time, and timezone values instead of compact ISO strings.",
+                  "Adds automatic progress monitoring after Update Now, including clearer guidance on when it is safe to refresh the browser.",
+                  "Updates the Windows Update Agent package to report download, restart, validation, completion, and rollback progress back to OrbitSM.",
                   "Replaces the temporary Reliable Hubs placeholder mark with the official Reliable Hubs logo in the OrbitSM navbar.",
                   "Removes the attachment count cap and replaces it with an add-more attachment picker while preserving the 5 MB per attachment limit.",
                   "Adds safe user deactivation/reactivation so departed employees cannot log in while historical records remain intact.",
