@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.14",
+    "version":  "1.0.15",
     "channel":  "stable",
-    "released_at":  "2026-06-29",
+    "released_at":  "2026-06-30",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.14"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.15"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.14"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.15"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,15 +19,24 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.13",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.13"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.14",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.14"
                  },
     "tags":  {
-                 "stable":  "1.0.14",
-                 "latest":  "1.0.14",
-                 "rollback":  "1.0.13"
+                 "stable":  "1.0.15",
+                 "latest":  "1.0.15",
+                 "rollback":  "1.0.14"
              },
     "notes":  [
+                  "Removes the attachment count cap and replaces it with an add-more attachment picker while preserving the 5 MB per attachment limit.",
+                  "Adds safe user deactivation/reactivation so departed employees cannot log in while historical records remain intact.",
+                  "Adds project archive/restore behavior so wrongly created projects can be hidden without deleting incidents, tasks, problems, changes, or audit history.",
+                  "Records project archival in related work-item audit trails and excludes archived projects from normal user pickers.",
+                  "Adds weekly AI training snapshots that summarize incidents, tasks, problems, changes, and readable attachment text for better operational insights.",
+                  "Adds manual AI training from Admin and surfaces source counts, top terms, and attachment evidence counts.",
+                  "Enhances AI clustering and situation analysis by using readable incident attachment evidence from uploaded logs, CSV, JSON, text, Markdown, and similar files.",
+                  "Adds Reliable Hubs co-branding to the OrbitSM navigation bar.",
+                  "Adds a Docker Hub publish script for versioning the full OrbitSM install package ZIP as bosesanjit/orbitsm-install-package:\u003cversion\u003e.",
                   "Adds assignee autocomplete with name and email matching from login users and project team members.",
                   "Sends and logs notification attempts when incidents and tasks are assigned, updated, or commented.",
                   "Adds full task detail pages with comments, updates, and read-only audit history.",
@@ -37,14 +46,12 @@
                   "Shows operational approver/collaborators/watchers on detail pages while preserving change L1/CAB approval history separately.",
                   "Sends work-item notification attempts to valid email recipients listed as approver, collaborators, or watchers.",
                   "Adds startup schema locking to prevent fresh-database table creation races with multiple backend workers.",
-                  "Update Now now refreshes the manifest and queues immediate execution; repaired Windows agent scripts poll every 1 minute."
-                  ,
+                  "Update Now now refreshes the manifest and queues immediate execution; repaired Windows agent scripts poll every 1 minute.",
                   "Fixes the 1.0.12 backend startup failure caused by Python 3.11 f-string parsing in notification logging.",
                   "Adds Assigned to autocomplete on new incident creation.",
                   "Automatically fills incident creator from the logged-in account email.",
                   "Adds autocomplete-assisted selection for approvers, collaborators, and watchers.",
-                  "Expands work-item notification routing so submitters/requesters, assignees, owners, approvers, collaborators, watchers, and resolved managers receive email updates when their names or emails are connected to incidents, tasks, service requests, problems, or changes."
-                  ,
+                  "Expands work-item notification routing so submitters/requesters, assignees, owners, approvers, collaborators, watchers, and resolved managers receive email updates when their names or emails are connected to incidents, tasks, service requests, problems, or changes.",
                   "Adds multiple attachments across incidents, tasks, problems, and changes with a maximum of 5 attachments per record and 5 MB per file.",
                   "Persists uploaded attachments in a Docker volume so files survive image updates and container recreation.",
                   "Adds attachment upload and delete audit entries plus work-item notification triggers.",
