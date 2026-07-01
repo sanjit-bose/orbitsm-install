@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.18",
+    "version":  "1.0.19",
     "channel":  "stable",
-    "released_at":  "2026-06-30",
+    "released_at":  "2026-07-01",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.18"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.19"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.18"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.19"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,15 +19,16 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.17",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.17"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.18",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.18"
                  },
     "tags":  {
-                 "stable":  "1.0.18",
-                 "latest":  "1.0.18",
-                 "rollback":  "1.0.17"
+                 "stable":  "1.0.19",
+                 "latest":  "1.0.19",
+                 "rollback":  "1.0.18"
              },
     "notes":  [
+                  "Allows passwords to include special characters while keeping 8-16 character length, at least one letter, at least one number, and no spaces.",
                   "Adds a Windows-installer-style Update Now progress popup with stage indicators and a progress bar.",
                   "Automatically refreshes the browser after update completion and then shows an Update Complete popup with the new version.",
                   "Moves Reliable Hubs branding into a dedicated navbar brand block so the official logo remains visible on crowded screens.",
