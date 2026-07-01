@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.19",
+    "version":  "1.0.20",
     "channel":  "stable",
     "released_at":  "2026-07-01",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.19"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.20"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.19"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.20"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -23,11 +23,15 @@
                      "frontend":  "bosesanjit/orbitsm-frontend:1.0.18"
                  },
     "tags":  {
-                 "stable":  "1.0.19",
-                 "latest":  "1.0.19",
+                 "stable":  "1.0.20",
+                 "latest":  "1.0.20",
                  "rollback":  "1.0.18"
              },
     "notes":  [
+                  "Update Center reliability patch: prevents false failed/rolled-back status when a Windows HTTPS health check reports an SChannel warning after a successful restart.",
+                  "Update Agent idle polling no longer overwrites the last successful update result.",
+                  "Update completion now automatically aligns current version, available version, check status, schedule status, and last run status.",
+                  "Update health validation now prefers the backend loopback health endpoint before HTTPS proxy checks for a smoother Windows Server experience.",
                   "Allows passwords to include special characters while keeping 8-16 character length, at least one letter, at least one number, and no spaces.",
                   "Adds a Windows-installer-style Update Now progress popup with stage indicators and a progress bar.",
                   "Automatically refreshes the browser after update completion and then shows an Update Complete popup with the new version.",
