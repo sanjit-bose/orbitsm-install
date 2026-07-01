@@ -1,15 +1,15 @@
-{
-    "version":  "1.0.23",
+﻿{
+    "version":  "1.0.24",
     "channel":  "stable",
     "released_at":  "2026-07-01",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.23"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.24"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.23"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.24"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,70 +19,23 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.18",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.18"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.23",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.23"
                  },
     "tags":  {
-                 "stable":  "1.0.23",
-                 "latest":  "1.0.23",
-                 "rollback":  "1.0.18"
+                 "stable":  "1.0.24",
+                 "latest":  "1.0.24",
+                 "rollback":  "1.0.23"
              },
     "notes":  [
-                  "Hardens the Windows Update Agent so update.ps1 failures always return a deterministic exit code and include recent host log details in OrbitSM observations.",
-                  "Adds retry-based status reporting after container restarts so the agent can report success or failure even while OrbitSM is temporarily unavailable during the upgrade.",
-                  "Adds a recovery script that repairs customer host update scripts without deleting the database or application data.",
-                  "Replaces corrupted progress symbols in the Update Center installer popup with plain readable status markers.",
-                  "Makes Update Center manifest downloads tolerant of UTF-8 BOM encoding and standardizes the official manifest URL to /main/update-manifest.json for reliable customer upgrades.",
-                  "Fixes password fields that still used old browser validation, so passwords like temp@1234 are accepted when they meet length, letter, number, and no-space rules.",
-                  "Password reset and verification emails now use the configured public OrbitSM URL; if Deployment Settings still show localhost, OrbitSM falls back to the admin browser URL and preserves non-standard ports such as 8443.",
-                  "Clarifies password guidance across user creation, admin password update, signup, and reset-password screens.",
-                  "Update Center reliability patch: prevents false failed/rolled-back status when a Windows HTTPS health check reports an SChannel warning after a successful restart.",
-                  "Update Agent idle polling no longer overwrites the last successful update result.",
-                  "Update completion now automatically aligns current version, available version, check status, schedule status, and last run status.",
-                  "Update health validation now prefers the backend loopback health endpoint before HTTPS proxy checks for a smoother Windows Server experience.",
-                  "Allows passwords to include special characters while keeping 8-16 character length, at least one letter, at least one number, and no spaces.",
-                  "Adds a Windows-installer-style Update Now progress popup with stage indicators and a progress bar.",
-                  "Automatically refreshes the browser after update completion and then shows an Update Complete popup with the new version.",
-                  "Moves Reliable Hubs branding into a dedicated navbar brand block so the official logo remains visible on crowded screens.",
-                  "Redesigns the Update Center layout to use wide screens better and improve readability.",
-                  "Displays dates and times as separate local date, local time, and timezone values instead of compact ISO strings.",
-                  "Adds automatic progress monitoring after Update Now, including clearer guidance on when it is safe to refresh the browser.",
-                  "Updates the Windows Update Agent package to report download, restart, validation, completion, and rollback progress back to OrbitSM.",
-                  "Replaces the temporary Reliable Hubs placeholder mark with the official Reliable Hubs logo in the OrbitSM navbar.",
-                  "Removes the attachment count cap and replaces it with an add-more attachment picker while preserving the 5 MB per attachment limit.",
-                  "Adds safe user deactivation/reactivation so departed employees cannot log in while historical records remain intact.",
-                  "Adds project archive/restore behavior so wrongly created projects can be hidden without deleting incidents, tasks, problems, changes, or audit history.",
-                  "Records project archival in related work-item audit trails and excludes archived projects from normal user pickers.",
-                  "Adds weekly AI training snapshots that summarize incidents, tasks, problems, changes, and readable attachment text for better operational insights.",
-                  "Adds manual AI training from Admin and surfaces source counts, top terms, and attachment evidence counts.",
-                  "Enhances AI clustering and situation analysis by using readable incident attachment evidence from uploaded logs, CSV, JSON, text, Markdown, and similar files.",
-                  "Adds Reliable Hubs co-branding to the OrbitSM navigation bar.",
-                  "Adds a Docker Hub publish script for versioning the full OrbitSM install package ZIP as bosesanjit/orbitsm-install-package:\u003cversion\u003e.",
-                  "Adds assignee autocomplete with name and email matching from login users and project team members.",
-                  "Sends and logs notification attempts when incidents and tasks are assigned, updated, or commented.",
-                  "Adds full task detail pages with comments, updates, and read-only audit history.",
-                  "Adds incident comments and read-only audit history to incident detail pages.",
-                  "Adds NEED_MORE_INFO incident status: SLA pauses and the incident automatically reassigns to the submitter.",
-                  "Adds standardized approver, collaborator, and watcher fields across incidents, tasks, service requests, problems, and changes.",
-                  "Shows operational approver/collaborators/watchers on detail pages while preserving change L1/CAB approval history separately.",
-                  "Sends work-item notification attempts to valid email recipients listed as approver, collaborators, or watchers.",
-                  "Adds startup schema locking to prevent fresh-database table creation races with multiple backend workers.",
-                  "Update Now now refreshes the manifest and queues immediate execution; repaired Windows agent scripts poll every 1 minute.",
-                  "Fixes the 1.0.12 backend startup failure caused by Python 3.11 f-string parsing in notification logging.",
-                  "Adds Assigned to autocomplete on new incident creation.",
-                  "Automatically fills incident creator from the logged-in account email.",
-                  "Adds autocomplete-assisted selection for approvers, collaborators, and watchers.",
-                  "Expands work-item notification routing so submitters/requesters, assignees, owners, approvers, collaborators, watchers, and resolved managers receive email updates when their names or emails are connected to incidents, tasks, service requests, problems, or changes.",
-                  "Adds multiple attachments across incidents, tasks, problems, and changes with a maximum of 5 attachments per record and 5 MB per file.",
-                  "Persists uploaded attachments in a Docker volume so files survive image updates and container recreation.",
-                  "Adds attachment upload and delete audit entries plus work-item notification triggers.",
-                  "Displays login retry count and locks accounts for 20 minutes after 5 failed attempts.",
-                  "Extends password reset link validity from 1 hour to 24 hours.",
-                  "Confirms pre-update PostgreSQL backup is required by default before patch installation.",
-                  "Preserves database volumes during update and rollback; rollback changes application images only unless an explicit database restore is requested.",
-                  "Adds owning project assignment and reassignment for Problems and Changes.",
-                  "Records Problem and Change project transfers in read-only audit history, including old project code and new project code.",
-                  "Problem and Change project filtering now includes directly assigned owning projects as well as linked incident/problem relationships."
+                  "Fixes welcome, reset-password, and verification email links so they use the deployed OrbitSM host/IP and port instead of localhost. The backend now prefers the configured public URL, then browser Origin/Referer, then proxy forwarded host including non-standard ports such as 8443.",
+                  "Updates Nginx proxy headers so OrbitSM preserves the external host and port when generating links behind the reverse proxy.",
+                  "Adds a logged-in user identity badge in the header with initials, name/email, and role so users know which account is active.",
+                  "Removes the word by from the Reliable Hubs co-branding in the OrbitSM header.",
+                  "Hides Admin, Deploy, and Updates navigation for non-admin users and redirects non-admin users away from direct /admin routes.",
+                  "Changes the default access governance mode to RBAC instead of Hybrid for new deployments and fallback configuration.",
+                  "Preserves existing PostgreSQL database volumes and project data; this patch changes application containers and proxy config only.",
+                  "Adds a safer one-command customer upgrade script for 1.0.24 that backs up config, pulls images, refreshes proxy config, recreates app containers without docker compose down -v, validates health, and updates Update Center metadata."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
