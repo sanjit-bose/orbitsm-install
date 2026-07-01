@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.21",
+    "version":  "1.0.22",
     "channel":  "stable",
     "released_at":  "2026-07-01",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.21"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.22"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.21"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.22"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -23,11 +23,12 @@
                      "frontend":  "bosesanjit/orbitsm-frontend:1.0.18"
                  },
     "tags":  {
-                 "stable":  "1.0.21",
-                 "latest":  "1.0.21",
+                 "stable":  "1.0.22",
+                 "latest":  "1.0.22",
                  "rollback":  "1.0.18"
              },
     "notes":  [
+                  "Makes Update Center manifest downloads tolerant of UTF-8 BOM encoding and standardizes the official manifest URL to /main/update-manifest.json for reliable customer upgrades.",
                   "Fixes password fields that still used old browser validation, so passwords like temp@1234 are accepted when they meet length, letter, number, and no-space rules.",
                   "Password reset and verification emails now use the configured public OrbitSM URL; if Deployment Settings still show localhost, OrbitSM falls back to the admin browser URL and preserves non-standard ports such as 8443.",
                   "Clarifies password guidance across user creation, admin password update, signup, and reset-password screens.",
