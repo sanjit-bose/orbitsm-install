@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.25",
+    "version":  "1.0.26",
     "channel":  "stable",
     "released_at":  "2026-07-02",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.25"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.26"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.25"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.26"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,13 +19,13 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.24",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.24"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.25",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.25"
                  },
     "tags":  {
-                 "stable":  "1.0.25",
-                 "latest":  "1.0.25",
-                 "rollback":  "1.0.24"
+                 "stable":  "1.0.26",
+                 "latest":  "1.0.26",
+                 "rollback":  "1.0.25"
              },
     "notes":  [
                   "Assets \u0026 CMDB now shows only customer-created/imported records. The hardcoded 1,248 demo asset inventory has been removed from the customer UI.",
@@ -36,7 +36,11 @@
                   "Adds Admin \u003e Manage User Project Access so admins can add or remove employees from projects and set per-project roles after account creation.",
                   "Improves incident register readability by using a high-contrast ticket ID link color on dark rows.",
                   "Hardens backend startup schema handling to avoid noisy multi-worker table creation warnings while preserving database volumes and customer data.",
-                  "Includes validation that fresh Assets \u0026 CMDB stats return zero when no assets have been added."
+                  "Includes validation that fresh Assets \u0026 CMDB stats return zero when no assets have been added.",
+                  "Assets \u0026 CMDB now presents imported Excel workbooks as worksheet tabs instead of one flattened inventory list.",
+                  "Reliable Hubs inventory import now keeps rows from all workbook tabs, including license, network, email, employee checklist, phone/SIM, software compliance, and UPS worksheets.",
+                  "Adds guarded row selection before edit/delete actions in Assets \u0026 CMDB to reduce accidental changes.",
+                  "Update Center now synchronizes the displayed current version from the running backend container when an upgrade completed but the agent final report was missed."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
