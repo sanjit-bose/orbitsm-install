@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.24",
+    "version":  "1.0.25",
     "channel":  "stable",
-    "released_at":  "2026-07-01",
+    "released_at":  "2026-07-02",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.24"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.25"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.24"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.25"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,23 +19,21 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.23",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.23"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.24",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.24"
                  },
     "tags":  {
-                 "stable":  "1.0.24",
-                 "latest":  "1.0.24",
-                 "rollback":  "1.0.23"
+                 "stable":  "1.0.25",
+                 "latest":  "1.0.25",
+                 "rollback":  "1.0.24"
              },
     "notes":  [
-                  "Fixes welcome, reset-password, and verification email links so they use the deployed OrbitSM host/IP and port instead of localhost. The backend now prefers the configured public URL, then browser Origin/Referer, then proxy forwarded host including non-standard ports such as 8443.",
-                  "Updates Nginx proxy headers so OrbitSM preserves the external host and port when generating links behind the reverse proxy.",
-                  "Adds a logged-in user identity badge in the header with initials, name/email, and role so users know which account is active.",
-                  "Removes the word by from the Reliable Hubs co-branding in the OrbitSM header.",
-                  "Hides Admin, Deploy, and Updates navigation for non-admin users and redirects non-admin users away from direct /admin routes.",
-                  "Changes the default access governance mode to RBAC instead of Hybrid for new deployments and fallback configuration.",
-                  "Preserves existing PostgreSQL database volumes and project data; this patch changes application containers and proxy config only.",
-                  "Adds a safer one-command customer upgrade script for 1.0.24 that backs up config, pulls images, refreshes proxy config, recreates app containers without docker compose down -v, validates health, and updates Update Center metadata."
+                  "Assets \u0026 CMDB now shows only customer-created/imported records. The hardcoded 1,248 demo asset inventory has been removed from the customer UI.",
+                  "Adds persistent Assets \u0026 CMDB storage with Excel/CSV import. Imported spreadsheet column names are preserved and visible on asset detail records.",
+                  "Adds Admin \u003e Manage User Project Access so admins can add or remove employees from projects and set per-project roles after account creation.",
+                  "Improves incident register readability by using a high-contrast ticket ID link color on dark rows.",
+                  "Hardens backend startup schema handling to avoid noisy multi-worker table creation warnings while preserving database volumes and customer data.",
+                  "Includes validation that fresh Assets \u0026 CMDB stats return zero when no assets have been added."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
