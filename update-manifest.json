@@ -28,19 +28,15 @@
                  "rollback":  "1.0.26"
              },
     "notes":  [
-                  "Assets \u0026 CMDB now shows only customer-created/imported records. The hardcoded 1,248 demo asset inventory has been removed from the customer UI.",
-                  "Adds persistent Assets \u0026 CMDB storage with multi-sheet Excel/CSV import. Imported spreadsheet column names are preserved and visible on asset detail records.",
-                  "Adds Reliable Hubs inventory workbook support: Laptop/Desktop/Mobile/One Drive/IP camera style sheets import cleanly, and YES/NO or TRUE/FALSE columns render as checkboxes.",
-                  "Adds manual add, edit, and delete actions for Assets \u0026 CMDB records.",
-                  "Shows user-created confirmation as a dismissible popup instead of a persistent page message.",
-                  "Adds Admin \u003e Manage User Project Access so admins can add or remove employees from projects and set per-project roles after account creation.",
-                  "Improves incident register readability by using a high-contrast ticket ID link color on dark rows.",
-                  "Hardens backend startup schema handling to avoid noisy multi-worker table creation warnings while preserving database volumes and customer data.",
-                  "Includes validation that fresh Assets \u0026 CMDB stats return zero when no assets have been added.",
-                  "Assets \u0026 CMDB now presents imported Excel workbooks as worksheet tabs instead of one flattened inventory list.",
-                  "Reliable Hubs inventory import now keeps rows from all workbook tabs, including license, network, email, employee checklist, phone/SIM, software compliance, and UPS worksheets.",
-                  "Adds guarded row selection before edit/delete actions in Assets \u0026 CMDB to reduce accidental changes.",
-                  "Update Center now synchronizes the displayed current version from the running backend container when an upgrade completed but the agent final report was missed."
+                  "Fixes Assets \u0026 CMDB Excel import accuracy for Reliable Hubs inventory workbooks.",
+                  "Workbook worksheet tabs remain selectable and no longer jump back to Laptop Inventory after a tab is clicked.",
+                  "Excel formatted-but-empty rows are ignored, so blank rows are not imported as assets.",
+                  "Summary/total rows such as Total :32 are ignored and no longer appear in the inventory grid.",
+                  "Fields such as Mobile Number, Email, IP, MAC, SIM Card, and Asset Number are displayed as text instead of checkbox boxes.",
+                  "TRUE/FALSE or YES/NO style values are displayed as readable Yes/No indicators.",
+                  "Duplicate Excel headers that differ only by case are de-duplicated safely so API responses remain valid JSON.",
+                  "Every inventory row now has a visible Edit action, and asset detail pages include an Edit this row button.",
+                  "Re-importing the same Excel filename replaces the older imported rows from that file while preserving records from other sources."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
