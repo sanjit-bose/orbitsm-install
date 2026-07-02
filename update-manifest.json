@@ -29,7 +29,10 @@
              },
     "notes":  [
                   "Assets \u0026 CMDB now shows only customer-created/imported records. The hardcoded 1,248 demo asset inventory has been removed from the customer UI.",
-                  "Adds persistent Assets \u0026 CMDB storage with Excel/CSV import. Imported spreadsheet column names are preserved and visible on asset detail records.",
+                  "Adds persistent Assets \u0026 CMDB storage with multi-sheet Excel/CSV import. Imported spreadsheet column names are preserved and visible on asset detail records.",
+                  "Adds Reliable Hubs inventory workbook support: Laptop/Desktop/Mobile/One Drive/IP camera style sheets import cleanly, and YES/NO or TRUE/FALSE columns render as checkboxes.",
+                  "Adds manual add, edit, and delete actions for Assets \u0026 CMDB records.",
+                  "Shows user-created confirmation as a dismissible popup instead of a persistent page message.",
                   "Adds Admin \u003e Manage User Project Access so admins can add or remove employees from projects and set per-project roles after account creation.",
                   "Improves incident register readability by using a high-contrast ticket ID link color on dark rows.",
                   "Hardens backend startup schema handling to avoid noisy multi-worker table creation warnings while preserving database volumes and customer data.",
