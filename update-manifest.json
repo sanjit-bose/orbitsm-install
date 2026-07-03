@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.27",
+    "version":  "1.0.28",
     "channel":  "stable",
-    "released_at":  "2026-07-02",
+    "released_at":  "2026-07-03",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.27"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.28"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.27"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.28"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,13 +19,13 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.26",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.26"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.27",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.27"
                  },
     "tags":  {
-                 "stable":  "1.0.27",
-                 "latest":  "1.0.27",
-                 "rollback":  "1.0.26"
+                 "stable":  "1.0.28",
+                 "latest":  "1.0.28",
+                 "rollback":  "1.0.27"
              },
     "notes":  [
                   "Fixes Assets \u0026 CMDB Excel import accuracy for Reliable Hubs inventory workbooks.",
@@ -36,7 +36,8 @@
                   "TRUE/FALSE or YES/NO style values are displayed as readable Yes/No indicators.",
                   "Duplicate Excel headers that differ only by case are de-duplicated safely so API responses remain valid JSON.",
                   "Every inventory row now has a visible Edit action, and asset detail pages include an Edit this row button.",
-                  "Re-importing the same Excel filename replaces the older imported rows from that file while preserving records from other sources."
+                  "Re-importing the same Excel filename replaces the older imported rows from that file while preserving records from other sources.",
+                  "Worksheet inventory views now suppress blank-only Excel columns so each tab matches the workbook column sequence."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
