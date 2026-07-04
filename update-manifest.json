@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.28",
+    "version":  "1.0.29",
     "channel":  "stable",
-    "released_at":  "2026-07-03",
+    "released_at":  "2026-07-04",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.28"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.29"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.28"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.29"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,25 +19,20 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.27",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.27"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.28",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.28"
                  },
     "tags":  {
-                 "stable":  "1.0.28",
-                 "latest":  "1.0.28",
-                 "rollback":  "1.0.27"
+                 "stable":  "1.0.29",
+                 "latest":  "1.0.29",
+                 "rollback":  "1.0.28"
              },
     "notes":  [
-                  "Fixes Assets \u0026 CMDB Excel import accuracy for Reliable Hubs inventory workbooks.",
-                  "Workbook worksheet tabs remain selectable and no longer jump back to Laptop Inventory after a tab is clicked.",
-                  "Excel formatted-but-empty rows are ignored, so blank rows are not imported as assets.",
-                  "Summary/total rows such as Total :32 are ignored and no longer appear in the inventory grid.",
-                  "Fields such as Mobile Number, Email, IP, MAC, SIM Card, and Asset Number are displayed as text instead of checkbox boxes.",
-                  "TRUE/FALSE or YES/NO style values are displayed as readable Yes/No indicators.",
-                  "Duplicate Excel headers that differ only by case are de-duplicated safely so API responses remain valid JSON.",
-                  "Every inventory row now has a visible Edit action, and asset detail pages include an Edit this row button.",
-                  "Re-importing the same Excel filename replaces the older imported rows from that file while preserving records from other sources.",
-                  "Worksheet inventory views now suppress blank-only Excel columns so each tab matches the workbook column sequence."
+                  "Adds Admin \u003e Projects controls to change user login roles from the OrbitSM UI.",
+                  "Adds project name and project code editing from the project administration screen.",
+                  "Clarifies and supports multi-project employee assignment so one user can belong to multiple projects with the same or different project roles.",
+                  "Allows project administrators to add, remove, or move employee project memberships from the Manage User Project Access section.",
+                  "Treats Executive users as admin-level users with global access and admin actions."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
