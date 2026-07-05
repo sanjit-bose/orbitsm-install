@@ -1,40 +1,40 @@
 {
-    "version":  "1.0.30",
-    "channel":  "stable",
-    "released_at":  "2026-07-04",
-    "minimumVersion":  "1.0.7",
-    "backupRequired":  true,
-    "components":  {
-                       "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.30"
-                                   },
-                       "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.30"
-                                    },
-                       "db":  {
-                                  "image":  "postgres:15"
-                              },
-                       "nginx":  {
-                                     "image":  "nginx:1.27-alpine"
-                                 }
-                   },
-    "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.29",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.29"
-                 },
-    "tags":  {
-                 "stable":  "1.0.30",
-                 "latest":  "1.0.30",
-                 "rollback":  "1.0.29"
-             },
-    "notes":  [
-                  "Allows incident approvers to approve or reject resolution directly from the incident detail page.",
-                  "Allows problem approvers to approve and close resolved problems from the problem detail page.",
-                  "Keeps change approval actions tied to the selected approver instead of a hardcoded actor.",
-                  "Allows associated approvers, collaborators, watchers, and linked-work participants to view and download attachments.",
-                  "Uses authenticated attachment downloads so customer users keep access when opening files."
-              ],
-    "update_type":  "patch",
-    "requires_database_migration":  true,
-    "health_check_url":  "/health"
+  "version": "1.0.32",
+  "channel": "stable",
+  "released_at": "2026-07-05",
+  "minimumVersion": "1.0.7",
+  "backupRequired": true,
+  "components": {
+    "backend": {
+      "image": "bosesanjit/orbitsm-backend:1.0.32"
+    },
+    "frontend": {
+      "image": "bosesanjit/orbitsm-frontend:1.0.32"
+    },
+    "db": {
+      "image": "postgres:15"
+    },
+    "nginx": {
+      "image": "nginx:1.27-alpine"
+    }
+  },
+  "rollback": {
+    "backend": "bosesanjit/orbitsm-backend:1.0.31",
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.31"
+  },
+  "tags": {
+    "stable": "1.0.32",
+    "latest": "1.0.32",
+    "rollback": "1.0.31"
+  },
+  "notes": [
+    "Adds a problem approval gate so handlers send RCA and fix details for approver review instead of closing directly.",
+    "Adds problem and change rejection with comments, rework, and resubmit paths for governance training scenarios.",
+    "Clarifies problem and change detail pages with next-action guidance and role-specific approval controls.",
+    "Allows manager hierarchy visibility for subordinate incident and task follow-up.",
+    "Keeps bootstrap admin reset to admin/admin available during POC while preserving normal password policy."
+  ],
+  "update_type": "patch",
+  "requires_database_migration": false,
+  "health_check_url": "/health"
 }
