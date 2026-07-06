@@ -1,15 +1,15 @@
 {
-  "version": "1.0.32",
+  "version": "1.0.33",
   "channel": "stable",
-  "released_at": "2026-07-05",
+  "released_at": "2026-07-06",
   "minimumVersion": "1.0.7",
   "backupRequired": true,
   "components": {
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.32"
+      "image": "bosesanjit/orbitsm-backend:1.0.33"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.32"
+      "image": "bosesanjit/orbitsm-frontend:1.0.33"
     },
     "db": {
       "image": "postgres:15"
@@ -19,20 +19,20 @@
     }
   },
   "rollback": {
-    "backend": "bosesanjit/orbitsm-backend:1.0.31",
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.31"
+    "backend": "bosesanjit/orbitsm-backend:1.0.32",
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.32"
   },
   "tags": {
-    "stable": "1.0.32",
-    "latest": "1.0.32",
-    "rollback": "1.0.31"
+    "stable": "1.0.33",
+    "latest": "1.0.33",
+    "rollback": "1.0.32"
   },
   "notes": [
-    "Adds a problem approval gate so handlers send RCA and fix details for approver review instead of closing directly.",
-    "Adds problem and change rejection with comments, rework, and resubmit paths for governance training scenarios.",
-    "Clarifies problem and change detail pages with next-action guidance and role-specific approval controls.",
-    "Allows manager hierarchy visibility for subordinate incident and task follow-up.",
-    "Keeps bootstrap admin reset to admin/admin available during POC while preserving normal password policy."
+    "Shows success and failure popups for user actions with backend-provided failure reasons instead of raw 500 messages.",
+    "Adds stage-specific next-step guidance and disabled lifecycle buttons for incident, problem, and change workflows.",
+    "Allows closed incidents to be reopened with audit history and comments.",
+    "Fixes SLA compliance to include active incidents that are still inside SLA, not only closed incidents.",
+    "Allows new changes to link incidents at creation time and ensures newly created changes remain visible in the change register."
   ],
   "update_type": "patch",
   "requires_database_migration": false,
