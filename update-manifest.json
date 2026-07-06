@@ -1,15 +1,15 @@
 {
-  "version": "1.0.33",
+  "version": "1.0.34",
   "channel": "stable",
   "released_at": "2026-07-06",
   "minimumVersion": "1.0.7",
   "backupRequired": true,
   "components": {
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.33"
+      "image": "bosesanjit/orbitsm-backend:1.0.34"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.33"
+      "image": "bosesanjit/orbitsm-frontend:1.0.34"
     },
     "db": {
       "image": "postgres:15"
@@ -19,20 +19,21 @@
     }
   },
   "rollback": {
-    "backend": "bosesanjit/orbitsm-backend:1.0.32",
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.32"
+    "backend": "bosesanjit/orbitsm-backend:1.0.33",
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.33"
   },
   "tags": {
-    "stable": "1.0.33",
-    "latest": "1.0.33",
-    "rollback": "1.0.32"
+    "stable": "1.0.34",
+    "latest": "1.0.34",
+    "rollback": "1.0.33"
   },
   "notes": [
-    "Shows success and failure popups for user actions with backend-provided failure reasons instead of raw 500 messages.",
-    "Adds stage-specific next-step guidance and disabled lifecycle buttons for incident, problem, and change workflows.",
-    "Allows closed incidents to be reopened with audit history and comments.",
-    "Fixes SLA compliance to include active incidents that are still inside SLA, not only closed incidents.",
-    "Allows new changes to link incidents at creation time and ensures newly created changes remain visible in the change register."
+    "Reduces false update-failed messages by allowing longer write operations to finish before timing out.",
+    "Keeps action popups for successful and failed user actions, with backend-provided failure reasons.",
+    "Limits incident, problem, and change emails to explicitly involved users instead of notifying executives by hierarchy.",
+    "Displays audit trail timestamps in the user's local system time.",
+    "Shows SLA remaining or overdue text clearly instead of negative hour values.",
+    "Closes user search dropdowns after selecting a person so lower fields are not blocked."
   ],
   "update_type": "patch",
   "requires_database_migration": false,
