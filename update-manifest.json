@@ -1,15 +1,15 @@
 {
-  "version": "1.0.38",
+  "version": "1.0.39",
   "channel": "stable",
   "released_at": "2026-07-07",
   "minimumVersion": "1.0.7",
   "backupRequired": true,
   "components": {
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.38"
+      "image": "bosesanjit/orbitsm-backend:1.0.39"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.38"
+      "image": "bosesanjit/orbitsm-frontend:1.0.39"
     },
     "db": {
       "image": "postgres:15"
@@ -19,13 +19,13 @@
     }
   },
   "rollback": {
-    "backend": "bosesanjit/orbitsm-backend:1.0.37",
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.37"
+    "backend": "bosesanjit/orbitsm-backend:1.0.38",
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.38"
   },
   "tags": {
-    "stable": "1.0.38",
-    "latest": "1.0.38",
-    "rollback": "1.0.37"
+    "stable": "1.0.39",
+    "latest": "1.0.39",
+    "rollback": "1.0.38"
   },
   "notes": [
     "Reduces false update-failed messages by allowing longer write operations to finish before timing out.",
@@ -40,7 +40,9 @@
     "Makes the Problem Linked Work owner editable so admins and handlers can correct wrongly assigned problem ownership from the UI.",
     "Makes people search suggestions expand inline instead of floating over lower fields.",
     "Keeps login lockout at 5 failed attempts and 20 minutes, and resets stale failed-attempt counters when the lock window expires.",
-    "Confirms fresh installs continue to bootstrap the default admin account as admin / admin unless explicitly changed."
+    "Confirms fresh installs continue to bootstrap the default admin account as admin / admin unless explicitly changed.",
+    "Adds a Recurring Issue badge and recurring signal when a problem has more than one linked incident.",
+    "Normalizes problem approval statuses so Approve and close activates for Pending Approval records, including older status variants."
   ],
   "update_type": "patch",
   "requires_database_migration": true,
