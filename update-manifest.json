@@ -1,15 +1,15 @@
 {
-  "version": "1.0.35",
+  "version": "1.0.36",
   "channel": "stable",
   "released_at": "2026-07-07",
   "minimumVersion": "1.0.7",
   "backupRequired": true,
   "components": {
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.35"
+      "image": "bosesanjit/orbitsm-backend:1.0.36"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.35"
+      "image": "bosesanjit/orbitsm-frontend:1.0.36"
     },
     "db": {
       "image": "postgres:15"
@@ -19,13 +19,13 @@
     }
   },
   "rollback": {
-    "backend": "bosesanjit/orbitsm-backend:1.0.34",
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.34"
+    "backend": "bosesanjit/orbitsm-backend:1.0.35",
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.35"
   },
   "tags": {
-    "stable": "1.0.35",
-    "latest": "1.0.35",
-    "rollback": "1.0.34"
+    "stable": "1.0.36",
+    "latest": "1.0.36",
+    "rollback": "1.0.35"
   },
   "notes": [
     "Reduces false update-failed messages by allowing longer write operations to finish before timing out.",
@@ -34,7 +34,9 @@
     "Displays audit trail timestamps in the user's local system time.",
     "Shows SLA remaining or overdue text clearly instead of negative hour values.",
     "Closes user search dropdowns after selecting a person so lower fields are not blocked.",
-    "Adds separate L1 reviewer and CAB approver fields for changes and enforces the correct approver at each approval step."
+    "Adds separate L1 reviewer and CAB approver fields for changes and enforces the correct approver at each approval step.",
+    "Adds /incidents as a supported incident-register route so direct links and post-login redirects no longer land on a 404 page.",
+    "Keeps the Update Center current-version observation synchronized with the runtime container version."
   ],
   "update_type": "patch",
   "requires_database_migration": true,
