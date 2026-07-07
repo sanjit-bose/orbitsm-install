@@ -1,15 +1,15 @@
 {
-    "version":  "1.0.42",
+    "version":  "1.0.43",
     "channel":  "stable",
     "released_at":  "2026-07-07",
     "minimumVersion":  "1.0.7",
     "backupRequired":  true,
     "components":  {
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.42"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.43"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.42"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.43"
                                     },
                        "db":  {
                                   "image":  "postgres:15"
@@ -19,13 +19,13 @@
                                  }
                    },
     "rollback":  {
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.41",
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.41"
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.42",
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.42"
                  },
     "tags":  {
-                 "stable":  "1.0.42",
-                 "latest":  "1.0.42",
-                 "rollback":  "1.0.41"
+                 "stable":  "1.0.43",
+                 "latest":  "1.0.43",
+                 "rollback":  "1.0.42"
              },
     "notes":  [
                   "Reduces false update-failed messages by allowing longer write operations to finish before timing out.",
@@ -44,7 +44,8 @@
                   "Adds a Recurring Issue badge and recurring signal when a problem has more than one linked incident.",
                   "Normalizes problem approval statuses so Approve and close activates for Pending Approval records, including older status variants.",
                   "Removes RESOLVED from the incident UI lifecycle, standardizes resolution review on RESOLVE_REQUESTED, converts legacy RESOLVED records to RESOLVE_REQUESTED, and explains that Reopen is active only after CLOSED.",
-                  "Adds guided button explanations and a workflow guide modal on incidents, problems, changes, tasks, requests, and attachments so disabled actions show the current reason and the next lifecycle step is visible."
+                  "Adds guided button explanations and a workflow guide modal on incidents, problems, changes, tasks, requests, and attachments so disabled actions show the current reason and the next lifecycle step is visible.",
+                  "Improves UI workflow usability after field UAT: new incidents, service requests, and direct changes now open their created detail pages; service request actions show clear success/failure messages; problem/task/change forms have clearer workflow labels and placeholders."
               ],
     "update_type":  "patch",
     "requires_database_migration":  true,
