@@ -3,35 +3,38 @@
     "requires_database_migration":  false,
     "update_type":  "patch",
     "rollback":  {
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.45",
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.45"
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.46",
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.46"
                  },
-    "version":  "1.0.46",
+    "version":  "1.0.47",
     "sku":  "general",
     "components":  {
                        "db":  {
                                   "image":  "postgres:15"
                               },
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.46"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.47"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.46"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.47"
                                     },
                        "nginx":  {
                                      "image":  "nginx:1.27-alpine"
                                  }
                    },
     "tags":  {
-                 "latest":  "1.0.46",
-                 "stable":  "1.0.46",
-                 "rollback":  "1.0.45"
+                 "latest":  "1.0.47",
+                 "stable":  "1.0.47",
+                 "rollback":  "1.0.46"
              },
     "health_check_url":  "/health",
     "channel":  "stable",
     "backupRequired":  true,
     "minimumVersion":  "1.0.7",
     "notes":  [
+                  "Adds honest incident email notification delivery feedback after create, update, comment, approve, reject, and reopen actions.",
+                  "Shows SMTP delivery failures directly on the incident page so admins can distinguish saved workflow actions from email configuration problems.",
+                  "Adds a visible Save incident updates button next to the incident Status field so status changes are easier to complete.",
                   "Makes incident approver comments mandatory for both approval and rejection.",
                   "Adds a dedicated incident Review discussion section for reviewer reasons, assignee responses, and resubmission evidence.",
                   "Renames the incident approval handoff to IN_REVIEW while preserving RESOLVE_REQUESTED as a compatibility alias.",
