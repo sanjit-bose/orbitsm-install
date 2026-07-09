@@ -3,35 +3,37 @@
     "requires_database_migration":  false,
     "update_type":  "patch",
     "rollback":  {
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.46",
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.46"
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.47",
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.47"
                  },
-    "version":  "1.0.47",
+    "version":  "1.0.48",
     "sku":  "general",
     "components":  {
                        "db":  {
                                   "image":  "postgres:15"
                               },
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.47"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.48"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.47"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.48"
                                     },
                        "nginx":  {
                                      "image":  "nginx:1.27-alpine"
                                  }
                    },
     "tags":  {
-                 "latest":  "1.0.47",
-                 "stable":  "1.0.47",
-                 "rollback":  "1.0.46"
+                 "latest":  "1.0.48",
+                 "stable":  "1.0.48",
+                 "rollback":  "1.0.47"
              },
     "health_check_url":  "/health",
     "channel":  "stable",
     "backupRequired":  true,
     "minimumVersion":  "1.0.7",
     "notes":  [
+                  "Adds autocomplete people search to older manual fields including service request requester, project team/customer contact, manager email, task assignee, problem owner, and change owner.",
+                  "Keeps people picker styling consistent across admin, request, problem, and change forms.",
                   "Adds honest incident email notification delivery feedback after create, update, comment, approve, reject, and reopen actions.",
                   "Shows SMTP delivery failures directly on the incident page so admins can distinguish saved workflow actions from email configuration problems.",
                   "Adds a visible Save incident updates button next to the incident Status field so status changes are easier to complete.",
