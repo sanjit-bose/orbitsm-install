@@ -3,35 +3,37 @@
     "requires_database_migration":  false,
     "update_type":  "patch",
     "rollback":  {
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.47",
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.47"
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.48",
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.48"
                  },
-    "version":  "1.0.48",
+    "version":  "1.0.49",
     "sku":  "general",
     "components":  {
                        "db":  {
                                   "image":  "postgres:15"
                               },
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.48"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.49"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.48"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.49"
                                     },
                        "nginx":  {
                                      "image":  "nginx:1.27-alpine"
                                  }
                    },
     "tags":  {
-                 "latest":  "1.0.48",
-                 "stable":  "1.0.48",
-                 "rollback":  "1.0.47"
+                 "latest":  "1.0.49",
+                 "stable":  "1.0.49",
+                 "rollback":  "1.0.48"
              },
     "health_check_url":  "/health",
     "channel":  "stable",
     "backupRequired":  true,
     "minimumVersion":  "1.0.7",
     "notes":  [
+                  "Fixes people search autocomplete suppression so Tasks and other controlled people fields reliably show suggestions while typing.",
+                  "Adds autocomplete to Asset/CMDB Owner/User so inventory ownership can be selected from known users.",
                   "Adds autocomplete people search to older manual fields including service request requester, project team/customer contact, manager email, task assignee, problem owner, and change owner.",
                   "Keeps people picker styling consistent across admin, request, problem, and change forms.",
                   "Adds honest incident email notification delivery feedback after create, update, comment, approve, reject, and reopen actions.",
