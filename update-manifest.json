@@ -1,31 +1,31 @@
 {
-    "released_at":  "2026-07-09",
+    "released_at":  "2026-07-14",
     "requires_database_migration":  false,
     "update_type":  "patch",
     "rollback":  {
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.48",
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.48"
+                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.49",
+                     "backend":  "bosesanjit/orbitsm-backend:1.0.49"
                  },
-    "version":  "1.0.49",
+    "version":  "1.0.50",
     "sku":  "general",
     "components":  {
                        "db":  {
                                   "image":  "postgres:15"
                               },
                        "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.49"
+                                       "image":  "bosesanjit/orbitsm-backend:1.0.50"
                                    },
                        "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.49"
+                                        "image":  "bosesanjit/orbitsm-frontend:1.0.50"
                                     },
                        "nginx":  {
                                      "image":  "nginx:1.27-alpine"
                                  }
                    },
     "tags":  {
-                 "latest":  "1.0.49",
-                 "stable":  "1.0.49",
-                 "rollback":  "1.0.48"
+                 "latest":  "1.0.50",
+                 "stable":  "1.0.50",
+                 "rollback":  "1.0.49"
              },
     "health_check_url":  "/health",
     "channel":  "stable",
@@ -33,6 +33,8 @@
     "minimumVersion":  "1.0.7",
     "notes":  [
                   "Fixes people search autocomplete suppression so Tasks and other controlled people fields reliably show suggestions while typing.",
+                  "Closes people search suggestion menus when the selected name or email already exactly matches the input so fields below are not blocked.",
+                  "Restores the previous incident handler automatically when an incident leaves NEED_MORE_INFO and returns to active work.",
                   "Adds autocomplete to Asset/CMDB Owner/User so inventory ownership can be selected from known users.",
                   "Adds autocomplete people search to older manual fields including service request requester, project team/customer contact, manager email, task assignee, problem owner, and change owner.",
                   "Keeps people picker styling consistent across admin, request, problem, and change forms.",
