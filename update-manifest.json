@@ -1,52 +1,42 @@
 {
-    "released_at":  "2026-07-14",
-    "requires_database_migration":  false,
-    "update_type":  "patch",
-    "rollback":  {
-                     "frontend":  "bosesanjit/orbitsm-frontend:1.0.49",
-                     "backend":  "bosesanjit/orbitsm-backend:1.0.49"
-                 },
-    "version":  "1.0.50",
-    "sku":  "general",
-    "components":  {
-                       "db":  {
-                                  "image":  "postgres:15"
-                              },
-                       "backend":  {
-                                       "image":  "bosesanjit/orbitsm-backend:1.0.50"
-                                   },
-                       "frontend":  {
-                                        "image":  "bosesanjit/orbitsm-frontend:1.0.50"
-                                    },
-                       "nginx":  {
-                                     "image":  "nginx:1.27-alpine"
-                                 }
-                   },
-    "tags":  {
-                 "latest":  "1.0.50",
-                 "stable":  "1.0.50",
-                 "rollback":  "1.0.49"
-             },
-    "health_check_url":  "/health",
-    "channel":  "stable",
-    "backupRequired":  true,
-    "minimumVersion":  "1.0.7",
-    "notes":  [
-                  "Fixes people search autocomplete suppression so Tasks and other controlled people fields reliably show suggestions while typing.",
-                  "Closes people search suggestion menus when the selected name or email already exactly matches the input so fields below are not blocked.",
-                  "Restores the previous incident handler automatically when an incident leaves NEED_MORE_INFO and returns to active work.",
-                  "Adds autocomplete to Asset/CMDB Owner/User so inventory ownership can be selected from known users.",
-                  "Adds autocomplete people search to older manual fields including service request requester, project team/customer contact, manager email, task assignee, problem owner, and change owner.",
-                  "Keeps people picker styling consistent across admin, request, problem, and change forms.",
-                  "Adds honest incident email notification delivery feedback after create, update, comment, approve, reject, and reopen actions.",
-                  "Shows SMTP delivery failures directly on the incident page so admins can distinguish saved workflow actions from email configuration problems.",
-                  "Adds a visible Save incident updates button next to the incident Status field so status changes are easier to complete.",
-                  "Makes incident approver comments mandatory for both approval and rejection.",
-                  "Adds a dedicated incident Review discussion section for reviewer reasons, assignee responses, and resubmission evidence.",
-                  "Renames the incident approval handoff to IN_REVIEW while preserving RESOLVE_REQUESTED as a compatibility alias.",
-                  "Adds editable incident priority, automatic detail refresh after actions, and closes people-picker suggestions after selection.",
-                  "When a rejected incident receives a review response, OrbitSM automatically sends it back to IN_REVIEW.",
-                  "Keeps the general OrbitSM SKU image family unchanged.",
-                  "Standardizes Incident, Problem, and Change display numbers across registers, detail pages, relationship maps, and linked-work panels while retaining internal IDs only as small support references."
-              ]
+  "released_at": "2026-07-16",
+  "requires_database_migration": false,
+  "update_type": "patch",
+  "rollback": {
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.50",
+    "backend": "bosesanjit/orbitsm-backend:1.0.50"
+  },
+  "version": "1.0.51",
+  "sku": "general",
+  "components": {
+    "db": {
+      "image": "postgres:15"
+    },
+    "backend": {
+      "image": "bosesanjit/orbitsm-backend:1.0.51"
+    },
+    "frontend": {
+      "image": "bosesanjit/orbitsm-frontend:1.0.51"
+    },
+    "nginx": {
+      "image": "nginx:1.27-alpine"
+    }
+  },
+  "tags": {
+    "latest": "1.0.51",
+    "stable": "1.0.51",
+    "rollback": "1.0.50"
+  },
+  "health_check_url": "/health",
+  "channel": "stable",
+  "backupRequired": true,
+  "minimumVersion": "1.0.7",
+  "notes": [
+    "Adds customer-facing OrbitSM ops scripts for Windows and Linux with status, backup, verify, restore-drill, support-bundle, and guarded restore actions.",
+    "Adds DB protection status in Admin > Deploy with live database sanity checks for core tables, admin user presence, and duplicate user email detection.",
+    "Hardens database backup and restore operations with pg_dump custom-format backups, latest backup pointers, SHA256 hash files, backup manifest updates, retention, and optional off-server mirror copy.",
+    "Adds a temporary-volume restore drill so backup usability can be proven without touching the production database volume.",
+    "Adds DB resilience documentation and release gates requiring backup, sanity check, and restore-drill validation before customer-facing releases.",
+    "Includes the new ops scripts and DB resilience documentation in the repeatable Docker Hub install package while continuing to exclude secrets, cert keys, runtime logs, backups, and generated status files."
+  ]
 }
