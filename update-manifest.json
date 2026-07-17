@@ -1,42 +1,41 @@
 {
-  "released_at": "2026-07-16",
+  "released_at": "2026-07-17",
   "requires_database_migration": false,
   "update_type": "patch",
   "rollback": {
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.50",
-    "backend": "bosesanjit/orbitsm-backend:1.0.50"
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.51",
+    "backend": "bosesanjit/orbitsm-backend:1.0.51"
   },
-  "version": "1.0.51",
+  "version": "1.0.52",
   "sku": "general",
   "components": {
     "db": {
       "image": "postgres:15"
     },
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.51"
+      "image": "bosesanjit/orbitsm-backend:1.0.52"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.51"
+      "image": "bosesanjit/orbitsm-frontend:1.0.52"
     },
     "nginx": {
       "image": "nginx:1.27-alpine"
     }
   },
   "tags": {
-    "latest": "1.0.51",
-    "stable": "1.0.51",
-    "rollback": "1.0.50"
+    "latest": "1.0.52",
+    "stable": "1.0.52",
+    "rollback": "1.0.51"
   },
   "health_check_url": "/health",
   "channel": "stable",
   "backupRequired": true,
   "minimumVersion": "1.0.7",
   "notes": [
-    "Adds customer-facing OrbitSM ops scripts for Windows and Linux with status, backup, verify, restore-drill, support-bundle, and guarded restore actions.",
-    "Adds DB protection status in Admin > Deploy with live database sanity checks for core tables, admin user presence, and duplicate user email detection.",
-    "Hardens database backup and restore operations with pg_dump custom-format backups, latest backup pointers, SHA256 hash files, backup manifest updates, retention, and optional off-server mirror copy.",
-    "Adds a temporary-volume restore drill so backup usability can be proven without touching the production database volume.",
-    "Adds DB resilience documentation and release gates requiring backup, sanity check, and restore-drill validation before customer-facing releases.",
-    "Includes the new ops scripts and DB resilience documentation in the repeatable Docker Hub install package while continuing to exclude secrets, cert keys, runtime logs, backups, and generated status files."
+    "Restricts closed incident reopen behavior to the dedicated Reopen action with a required reopen comment and blocks generic status or Kanban bypasses.",
+    "Locks problem RCA, known error, workaround, and permanent fix fields until the matching workflow stage is reached, while preserving the sequential action flow.",
+    "Adds a global CAB member configuration section under Admin and feeds the configured CAB members into change approval selection.",
+    "Improves action feedback on incident and problem workflow buttons so users see immediate in-progress state while server actions complete.",
+    "Adds regression tests for incident reopen enforcement, Kanban bypass prevention, problem field sequencing, and global CAB defaults."
   ]
 }
