@@ -1,41 +1,41 @@
 {
-  "released_at": "2026-07-17",
+  "released_at": "2026-07-20",
   "requires_database_migration": false,
   "update_type": "patch",
   "rollback": {
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.51",
-    "backend": "bosesanjit/orbitsm-backend:1.0.51"
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.52",
+    "backend": "bosesanjit/orbitsm-backend:1.0.52"
   },
-  "version": "1.0.52",
+  "version": "1.0.53",
   "sku": "general",
   "components": {
     "db": {
       "image": "postgres:15"
     },
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.52"
+      "image": "bosesanjit/orbitsm-backend:1.0.53"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.52"
+      "image": "bosesanjit/orbitsm-frontend:1.0.53"
     },
     "nginx": {
       "image": "nginx:1.27-alpine"
     }
   },
   "tags": {
-    "latest": "1.0.52",
-    "stable": "1.0.52",
-    "rollback": "1.0.51"
+    "latest": "1.0.53",
+    "stable": "1.0.53",
+    "rollback": "1.0.52"
   },
   "health_check_url": "/health",
   "channel": "stable",
   "backupRequired": true,
   "minimumVersion": "1.0.7",
   "notes": [
-    "Restricts closed incident reopen behavior to the dedicated Reopen action with a required reopen comment and blocks generic status or Kanban bypasses.",
-    "Locks problem RCA, known error, workaround, and permanent fix fields until the matching workflow stage is reached, while preserving the sequential action flow.",
-    "Adds a global CAB member configuration section under Admin and feeds the configured CAB members into change approval selection.",
-    "Improves action feedback on incident and problem workflow buttons so users see immediate in-progress state while server actions complete.",
-    "Adds regression tests for incident reopen enforcement, Kanban bypass prevention, problem field sequencing, and global CAB defaults."
+    "Restricts incident closure to the configured approver or admin-level authority, including direct status edits and Kanban moves after rejection.",
+    "Adds an Admin SCADA Incident Intake configuration section with enable/disable, assignee, approver, collaborators, watchers, priority mapping, and optional ignored alarms.",
+    "Creates and links a SCADA Monitoring project from the SCADA configuration so future SCADA incidents use the normal project list and email notification path.",
+    "Adds a Windows SCADA readiness collector and operations documentation for AVEVA/SCADA evidence discovery without vendor support.",
+    "Adds regression tests for incident close authority and SCADA admin configuration."
   ]
 }
