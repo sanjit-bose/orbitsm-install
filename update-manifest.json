@@ -3,39 +3,39 @@
   "requires_database_migration": false,
   "update_type": "patch",
   "rollback": {
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.55",
-    "backend": "bosesanjit/orbitsm-backend:1.0.55"
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.56",
+    "backend": "bosesanjit/orbitsm-backend:1.0.56"
   },
-  "version": "1.0.56",
+  "version": "1.0.57",
   "sku": "general",
   "components": {
     "db": {
       "image": "postgres:15"
     },
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.56"
+      "image": "bosesanjit/orbitsm-backend:1.0.57"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.56"
+      "image": "bosesanjit/orbitsm-frontend:1.0.57"
     },
     "nginx": {
       "image": "nginx:1.27-alpine"
     }
   },
   "tags": {
-    "latest": "1.0.56",
-    "stable": "1.0.56",
-    "rollback": "1.0.55"
+    "latest": "1.0.57",
+    "stable": "1.0.57",
+    "rollback": "1.0.56"
   },
   "health_check_url": "/health",
   "channel": "stable",
   "backupRequired": true,
   "minimumVersion": "1.0.7",
   "notes": [
-    "Prevents Update Center from reusing stale completed status when a new update is queued.",
-    "Shows completion only after the running version reaches the target version.",
-    "Resets last run status, observations, and log path when immediate or scheduled updates are requested.",
-    "Improves waiting-for-agent behavior so missing host agent execution is visible instead of reported as success.",
-    "Adds regression coverage for stale update completion state."
+    "Adds token-secured SCADA alarm intake for local evidence folders.",
+    "Creates or updates SCADA incidents with configured assignee, approver, collaborators, watchers, and priority mapping.",
+    "Uploads SCADA evidence files as normal OrbitSM incident attachments.",
+    "Deduplicates repeated SCADA alarms while the matching incident remains open.",
+    "Packages a Windows SCADA evidence intake script and admin documentation."
   ]
 }
