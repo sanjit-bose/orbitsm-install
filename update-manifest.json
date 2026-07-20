@@ -3,39 +3,39 @@
   "requires_database_migration": false,
   "update_type": "patch",
   "rollback": {
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.52",
-    "backend": "bosesanjit/orbitsm-backend:1.0.52"
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.53",
+    "backend": "bosesanjit/orbitsm-backend:1.0.53"
   },
-  "version": "1.0.53",
+  "version": "1.0.54",
   "sku": "general",
   "components": {
     "db": {
       "image": "postgres:15"
     },
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.53"
+      "image": "bosesanjit/orbitsm-backend:1.0.54"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.53"
+      "image": "bosesanjit/orbitsm-frontend:1.0.54"
     },
     "nginx": {
       "image": "nginx:1.27-alpine"
     }
   },
   "tags": {
-    "latest": "1.0.53",
-    "stable": "1.0.53",
-    "rollback": "1.0.52"
+    "latest": "1.0.54",
+    "stable": "1.0.54",
+    "rollback": "1.0.53"
   },
   "health_check_url": "/health",
   "channel": "stable",
   "backupRequired": true,
   "minimumVersion": "1.0.7",
   "notes": [
-    "Restricts incident closure to the configured approver or admin-level authority, including direct status edits and Kanban moves after rejection.",
-    "Adds an Admin SCADA Incident Intake configuration section with enable/disable, assignee, approver, collaborators, watchers, priority mapping, and optional ignored alarms.",
-    "Creates and links a SCADA Monitoring project from the SCADA configuration so future SCADA incidents use the normal project list and email notification path.",
-    "Adds a Windows SCADA readiness collector and operations documentation for AVEVA/SCADA evidence discovery without vendor support.",
-    "Adds regression tests for incident close authority and SCADA admin configuration."
+    "Restricts incident approval and rejection to the configured incident approver when an approver is set, even if the assignee has admin-level platform access.",
+    "Keeps admin/executive fallback only for legacy incidents without a configured approver.",
+    "Aligns the incident detail UI so approve/reject buttons stay disabled unless the signed-in user is the configured approver.",
+    "Keeps the 1.0.53 incident close guard and SCADA admin configuration unchanged.",
+    "Adds regression coverage for assignee-admin approval and rejection bypass prevention."
   ]
 }
