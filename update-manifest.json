@@ -3,39 +3,39 @@
   "requires_database_migration": false,
   "update_type": "patch",
   "rollback": {
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.53",
-    "backend": "bosesanjit/orbitsm-backend:1.0.53"
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.54",
+    "backend": "bosesanjit/orbitsm-backend:1.0.54"
   },
-  "version": "1.0.54",
+  "version": "1.0.55",
   "sku": "general",
   "components": {
     "db": {
       "image": "postgres:15"
     },
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.54"
+      "image": "bosesanjit/orbitsm-backend:1.0.55"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.54"
+      "image": "bosesanjit/orbitsm-frontend:1.0.55"
     },
     "nginx": {
       "image": "nginx:1.27-alpine"
     }
   },
   "tags": {
-    "latest": "1.0.54",
-    "stable": "1.0.54",
-    "rollback": "1.0.53"
+    "latest": "1.0.55",
+    "stable": "1.0.55",
+    "rollback": "1.0.54"
   },
   "health_check_url": "/health",
   "channel": "stable",
   "backupRequired": true,
   "minimumVersion": "1.0.7",
   "notes": [
-    "Restricts incident approval and rejection to the configured incident approver when an approver is set, even if the assignee has admin-level platform access.",
-    "Keeps admin/executive fallback only for legacy incidents without a configured approver.",
-    "Aligns the incident detail UI so approve/reject buttons stay disabled unless the signed-in user is the configured approver.",
-    "Keeps the 1.0.53 incident close guard and SCADA admin configuration unchanged.",
-    "Adds regression coverage for assignee-admin approval and rejection bypass prevention."
+    "Removes approver-only incident controls from the assignee UI when a configured approver exists.",
+    "Hides Approve, Reject, Approved, Rejected, and Closed controls/options from non-approvers instead of showing disabled warnings.",
+    "Blocks direct status payloads for APPROVED, REJECTED, and CLOSED unless the signed-in user is the configured incident approver.",
+    "Preserves IN_REVIEW so assignees can still send completed work to the approver for review.",
+    "Adds regression coverage for direct assignee-admin status tampering attempts."
   ]
 }
