@@ -35,7 +35,9 @@
     "Improves service request discovery by making Requests open the full request queue.",
     "Separates service request listing from ordinary tasks and uses REQ numbering for new and moved requests.",
     "Adds request filters for all visible, my requests, assigned to me, pending my approval, and status.",
-    "Enforces service request workflow transitions and approver-only approval from Pending Approval.",
-    "Stores new service request comments and audit entries in structured task comment/event history."
+    "Enforces service request workflow transitions as Open to In Progress to Pending Approval to Fulfilled.",
+    "Allows only the configured approver to approve fulfillment or reject completed work back to the assignee.",
+    "Stores new service request comments and audit entries in structured task comment/event history.",
+    "Highlights unassigned service requests with a subtle slow glow in the request queue."
   ]
 }
