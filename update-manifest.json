@@ -1,41 +1,41 @@
 {
-  "released_at": "2026-07-20",
+  "released_at": "2026-07-21",
   "requires_database_migration": false,
   "update_type": "patch",
   "rollback": {
-    "frontend": "bosesanjit/orbitsm-frontend:1.0.56",
-    "backend": "bosesanjit/orbitsm-backend:1.0.56"
+    "frontend": "bosesanjit/orbitsm-frontend:1.0.57",
+    "backend": "bosesanjit/orbitsm-backend:1.0.57"
   },
-  "version": "1.0.57",
+  "version": "1.0.58",
   "sku": "general",
   "components": {
     "db": {
       "image": "postgres:15"
     },
     "backend": {
-      "image": "bosesanjit/orbitsm-backend:1.0.57"
+      "image": "bosesanjit/orbitsm-backend:1.0.58"
     },
     "frontend": {
-      "image": "bosesanjit/orbitsm-frontend:1.0.57"
+      "image": "bosesanjit/orbitsm-frontend:1.0.58"
     },
     "nginx": {
       "image": "nginx:1.27-alpine"
     }
   },
   "tags": {
-    "latest": "1.0.57",
-    "stable": "1.0.57",
-    "rollback": "1.0.56"
+    "latest": "1.0.58",
+    "stable": "1.0.58",
+    "rollback": "1.0.57"
   },
   "health_check_url": "/health",
   "channel": "stable",
   "backupRequired": true,
   "minimumVersion": "1.0.7",
   "notes": [
-    "Adds token-secured SCADA alarm intake for local evidence folders.",
-    "Creates or updates SCADA incidents with configured assignee, approver, collaborators, watchers, and priority mapping.",
-    "Uploads SCADA evidence files as normal OrbitSM incident attachments.",
-    "Deduplicates repeated SCADA alarms while the matching incident remains open.",
-    "Packages a Windows SCADA evidence intake script and admin documentation."
+    "Improves service request discovery by making Requests open the full request queue.",
+    "Separates service request listing from ordinary tasks and uses REQ numbering for new and moved requests.",
+    "Adds request filters for all visible, my requests, assigned to me, pending my approval, and status.",
+    "Enforces service request workflow transitions and approver-only approval from Pending Approval.",
+    "Stores new service request comments and audit entries in structured task comment/event history."
   ]
 }

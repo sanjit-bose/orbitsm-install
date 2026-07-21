@@ -8,5 +8,5 @@ Manifest URL:
 https://raw.githubusercontent.com/sanjit-bose/orbitsm-install/main/update-manifest.json
 ```
 
-Current stable version: `1.0.57`
-Rollback version: `1.0.56`
+Current stable version: `1.0.58`
+Rollback version: `1.0.57`
